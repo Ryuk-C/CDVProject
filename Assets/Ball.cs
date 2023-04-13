@@ -25,7 +25,7 @@ public class Ball : MonoBehaviour
         SendBallToRandomDirection();
 
         leftPlayerText.text = "0";
-        rightPlayerScore.text = "0";
+        rightPlayerText.text = "0";
         
     }
 
