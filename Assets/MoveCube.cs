@@ -10,6 +10,7 @@ public class MoveCube : MonoBehaviour
     public KeyCode upKey;
     public KeyCode downKey;
     public Color playerColor;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,6 @@ public class MoveCube : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidBody2D = GetComponent<Rigidbody2D>();  
         spriteRenderer.color = playerColor;
-       
         
     }
 
@@ -25,21 +25,21 @@ public class MoveCube : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(upKey))
+        if (Input.GetKey(upKey) && transform.position.y < 5)
         {
 
-            rigidBody2D.velocity = Vector2.up;
+            rigidBody2D.velocity = Vector2.up * speed;
 
-        }else if(Input.GetKey(downKey))
+        }else if(Input.GetKey(downKey) && transform.position.y > -5)
         {
 
-            rigidBody2D.velocity = Vector2.down;
+            rigidBody2D.velocity = Vector2.down * speed;
 
         }
         else
         {
 
-            rigidBody2D.velocity = Vector2.zero;
+            rigidBody2D.velocity = Vector2.zero * speed;
 
         }
 
